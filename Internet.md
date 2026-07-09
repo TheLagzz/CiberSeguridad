@@ -31,7 +31,7 @@ Se utiliza una dirección pública para identificar el dispositivo en Internet, 
 | DESKPTOP-KJE57FD       | 86.157.52.21 | Público              |
 | CMNatic-PC             | 192.168.1.74 | Privado              |
 | CMNatic-PC             | 86.157.52.21 | Público              |
-![[Pasted image 20260708183322.png]]
+![](Pasted%20image%2020260708183322.png)
 Estos dos dispositivos podrán utilizar sus IP privadas para comunicarse entre sí sin embargo cualquier dato enviado desde internet desde cualquiera de los dispositivos será identificado por la misma dirección IP pública, las direcciones IP públicas son proporcionadas por el Internet Service Provider (**ISP**) o en español dicho como el Proveedor de Servicios de Internet.
 
 # ¿Qué es IPv4?
@@ -40,12 +40,12 @@ Es un protocolo de internet, mejor dicho como Protocolo De Internet Versión 4, 
 # ¿Qué es IPv6?
 Como el problema que surge de IPv4 es la escases de direcciones IP, con IPv6 proporciona hasta $2^{128}$ direcciones IP que son mas de **340 billones de direcciones IP** y también proporciona mas eficiencias gracias a nuevas tecnologías. Las direcciones con IPv4 y IPv6 son distintas:
 
-![[Pasted image 20260708185411.png]]
+![](Pasted%20image%2020260708185411.png)
 
 # Direcciones MAC
 Todos los dispositivos de una red tendrán una interfaz de red física, que es una placa de microchip que se encuentra en la placa base del dispositivo. A esta interfaz de red se le asigna una dirección única en la fábrica en la que se construyó, llamada a **MAC** (Media Access Control). La dirección MAC utiliza 12 caracteres en hexadecimal, dividido de dos en dos y separado por dos puntos, a los dos puntos se les llama "separadores". Por ejemplo: _a4:c3:f0:85:ac:2d_. 
 Los primeros seis caracteres representan la empresa que creó la interfaz de red y los últimos seis son un numero único.
-![[Pasted image 20260708190802.png]]
+![](Pasted%20image%2020260708190802.png)
 Algo interesante con las direcciones MAC es que pueden ser falsificadas o "suplantadas" en un proceso conocido como _spoofing_. Esta suplantación ocurre cuando un dispositivo de red finge identificarse como otro utilizando su dirección MAC. Cuando esto sucede, a menudo puede romper diseños de seguridad mal implementados que asumen que los dispositivos que se comunican en una red son confiables.
 
 Considera el siguiente escenario: un firewall está configurado para permitir cualquier comunicación hacia y desde la dirección MAC del administrador. Si un dispositivo simulara o hiciera "_spoofing_" de esta dirección MAC, el firewall pensaría que está recibiendo comunicación del administrador cuando no es así.
