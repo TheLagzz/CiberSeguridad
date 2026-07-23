@@ -1,0 +1,31 @@
+SMB es un protocolo y sus siglas significan Server Message Block es un protocolo de red utilizado para compartir recursos dentro de una red como ficheros, impresoras y demás que generalmente corren en el puerto 139 y 445 adicionalmente que este protocolo se basa en el protocolo TCP y en ocasiones dependiendo de como esté configurado podemos conseguir mucha información sobre él que nos puede servir para futuras fases del pentesting. Hay que tener en cuenta que SMB está hecho únicamente para Windows si quisieramos usarlo para Linux deberíamos usar SAMBA que es una implementación gratuita del protocolo SMB para UNIX y Linux, hay que tener en cuenta que SAMBA no es un protocolo ajeno SAMBA implementa el protocolo SMB. Lo importante al enumerar este tipo de servicios que implementen este protocolo es principalmente obtener información de varios elementos dentro de este protocolo como evidentemente los recursos que se estén compartiendo, el nivel de permisos que tienen los usuarios para acceder a dichos recursos o si hay recursos a los que se pueden acceder sin que nos pida autenticarnos adicionalmente podría identificar los potenciales usuarios que existen en el sistema operativo y que puedan tener permisos para acceder a recursos que se estén compartiendo y adicionalmente poder obtener información de las políticas y configuraciones que estén implementadas en este protocolo dentro de como tal la maquina victima. Este protocolo nos sirve para conseguir bastante información en algunos casos y dependiendo de la versión de este protocolo podríamos además de numerar explotarlo consiguiendo ejecución remota de comandos dentro del servidor y para tener un ejemplo hay que usar la maquina de TryHackMe llamada "Relevant".
+
+La metodología a seguir es la siguiente:
+1) Detectar la presencia de un puerto que esté corriendo un servicio SMB o SAMBA
+2) Una identificado procederemos a enumerada su versión (identificar su versión)
+3) Procedemos a enumerar recursos compartidos, posteriormente los usuarios, políticas o configuraciones y si se pudiera podríamos acceder a algún recurso compartido de manera anónima o con credenciales validas y empezar a enumerar desde dentro como desde fuera.
+Para empezar esto dentro de la terminal hacemos "nmap -Pn -p139,445 10.10.28.90"
+![[Pasted image 20260722173548.png]]
+aparece dos veces que estan abiertos los puertos 139 y 445 pero porque? es porque en el puerto 139 se utiliza SMB sobre NETBIOS y en el puerto 445 se utiliza SBM directamente sobre tcp ip y en cualquier red minimamente decente lo vas a conseguir en el puerto 445 es decir SMB utilizando TCP IP ya que como tal SMB utilizando netbios es bastante antiguo por lo que lo mas moderno y mas ocurrente es el puerto 445.
+
+Una vez identificado los puertos abiertos corriendo este protocolo lo que haremos es lanzar un script de Nmap que es el siguiente (smb-protocols) "nmap --script smb-protocols -p139,445 10.64.180.36"
+![[Pasted image 20260722174105.png]]
+por lo que se ve la version del protocolo SMB es SMBv1. Una vez identificados los puertos abiertos y tambien la version de SMB lo que sigue es empezar a numerar elementos dentro de SMB empezando por los recursos compartidos y tenemos unas herramientas como los propios scripts de Nmap pero tambien podemos usar herramientas de terceros como "smbclient" que nos permite numerar recursos compartidos y posteriormente poner "-L" L de List para que enliste los recursos compatidos y posteriormente le enviamos la direccion IP o nombre de host mediante "\\\\\" dos barras invertidas se usan dos barras porque estamos en un contexto estamos tratando con recursos compartidos y ese separador es necesario y al final "-N" N de NULL para indicarle que vamos a interactuar con una sesión nula (osea que no tenemos credenciales)
+![[Pasted image 20260722174738.png]]
+lo primero que encontramos son 4 cosas, la primeras 3 son bastantes comunes ya que suelen ser recursos compartidos que se definen de forma predeterminada.
+ADMIN$ es un recurso compartido que usualmente apunta a "c:\windows" y se utiliza principalmente para labores de administracion con permisos elevados
+C$ directamente apunta hacia "c:\\" osea a la unidad
+IPC$ que son la siglas de Inter Process Communitaction y este en cierta forma almacena un recurso compartido que es especial para los interprocesos entre aplicaciones ya que como tal este proceso no almacena datos en si, lo que hace es para transmitir datos de control y comandos entre procesos como una estación temporal de trabajo
+nt4wrksv y este proceso no es nada comun por lo que podemos intuir que fue creado manualmente por un usuario y si lo podemos listar puede ser que a lo mejor podemos tener acceso a el.
+
+Por lo que como no es comun quiza no esta bien configurado y podemos acceder a ese recurso compartido mediante un comando con "smbclient" y usar 4 barras en vez de 2 y esto es porque la shell de linux puede interpretar caracteres especiales como las barras y para evitar que la shell malinterprete para que el primer par de barras indique el protocolo y las siguientes dos para que shell no las interprete y tambien aplica para las barras del recuros la primera vale y la segunda no porque es la que esta evitando que se tome como caracter especial
+![[Pasted image 20260722175646.png]]
+y dentro encontramos recursos y un txt con el nombre de passwords.txt lo abrimos encontramos una contraseña encriptada en posiblemente base 64 y podemos usar herramientas de terceros o las ya instaladas en kalilinux mediante lo siguiente
+![[Pasted image 20260722180221.png]]
+![[Pasted image 20260722180155.png]]
+
+Hay herramientas mas intrusivas o que pueden usarse si tienes credenciales y van hacer un barrido de todo y vas encontrar mas recursos compartidos como:
+
+crackmapexec smb 10.10.28.90 que es una herramienta de pentesting orientada a la recopilacion de informacion activa y en algunos casos a explotacion de vulnerabilidades sobre varios protocolos.
+
+y con crackmapexec podemos ver si para smb las credenciales que encontramos para Bob son validas
