@@ -1,5 +1,13 @@
+# ¿A qué se le llama enumeración?
+Es el proceso activo de extraer información detallada y sistemática de un sistema, red o aplicación, como **puertos abiertos**, **nombres de usuario** y **versiones de software**. Los atacantes o auditores establecen conexiones directas para encontrar los puntos de entrada más débiles y preparar ataques.
+Durante la fase de enumeración los datos que se recopilan son los siguientes o pueden ser los siguientes:
+- **Nombres de usuario y contraseñas** por defecto.
+- **Recursos de red y carpetas compartidas**.
+- **Tablas de enrutamiento**.
+- **Detalles del DNS** (como subdominios o registros de correo).
+- **Versiones exactas de los servicios** en ejecución.
 # ¿Qué es OSINT?
-Las siglas OSINT es Open Source Intelligence, se le llama OSINT a una serie de procesos que tienen como objetivo hacer uso de fuentes de información publica o abiertas para así poder buscar y recopilar toda la información posible sobre un objetivo en concreto ya se por ejemplo una persona o una empresa con el fin de recopilar toda esta información y crear inteligencia a partir de ella, mediante la interconexión de puntos, viendo patrones repetitivos y mas cosas. El OSINT no es solo para ciberseguridad, se puede utilizar en muchas otras áreas. El OSINT es completamente legal ya que como tal no estamos interactuando con ningún objetivo porque solo estamos consultando información pública que es accesible para cualquier persona y por ende es legal.
+Las siglas OSINT es Open Source Intelligence, se le llama OSINT a una serie de procesos que tienen como objetivo hacer uso de fuentes de información publica o abiertas para así poder buscar y recopilar toda la información posible sobre un objetivo en concreto ya sea por ejemplo una persona o una empresa con el fin de recopilar toda esta información y crear inteligencia a partir de ella, mediante la interconexión de puntos, viendo patrones repetitivos y mas cosas. El OSINT no es solo para ciberseguridad, se puede utilizar en muchas otras áreas. El OSINT es completamente legal ya que como tal no estamos interactuando con ningún objetivo porque solo estamos consultando información pública que es accesible para cualquier persona y por ende es legal.
 
 # ¿Cuáles son las fuentes abiertas donde se consigue información?
 Básicamente cualquier lugar que tenga información pública y para ellos se pueden utilizar varios métodos como los motores de búsqueda como Google o el uso de redes sociales, hay maneras de hacerlo manualmente pero también hay manera de automatizarlo un poco con herramientas, por ejemplo a la herramienta le das el nombre de una entidad y esta se va a encargar de buscar toda la información que pueda conseguir sobre dicha entidad o persona. El OSINT para la certificación eJPT no es muy relevante como para el examen pero es importante saberlo porque en muchas partes se podrían utilizar.

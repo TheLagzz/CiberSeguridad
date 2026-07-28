@@ -45,7 +45,7 @@ Sirve para devolvernos a las versiones de las paginas que ha indexado Google por
 # Operadores Lógicos
 
 ### AND & OR
-Estos son case sensitive por lo que no es igual "AND" que "and" u "OR" que "or", por lo que estos operadores siempre en mayúsculas. 
+Estos son case sensitive por lo que no es igual "AND" que "and" u "OR" que "or", por lo que estos operadores siempre deben ir en mayúsculas. 
 Podemos decir que "AND" = "Y" ósea que se se deben cumplir todas las condiciones y "OR" = "O" ósea se cumple una condición o las otras
 **Ejemplo:** Si quisiéramos buscar en todo el dominio de Microsoft.com todas las paginas que en su contenido tengan la palabra "tools" y además que en su URL contengan la palabra "free" deberíamos escribir en la barra de búsqueda: "site:microsoft.com intext:tools AND inurl:free" y por otro lado si quisieramos buscar lo mismo pero quisieramos que fuera la palabra "free" o la palabra "gratis" en la URL se usaría "site:microsoft.com intext:tools inurl:free OR inurl:gratis" y en este caso cuando estamos combinando varios operadores de búsqueda estamos formando un **dork**.
 La gracia de hacer esto es combinarlos todo lo que se pueda para filtrar tanto la información con la intensión de solamente en una búsqueda podamos filtrar tanto la información que solamente lleguemos a conseguir lo que se requiere en ese momento.
