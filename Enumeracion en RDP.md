@@ -17,3 +17,7 @@ rdp-ntlm-info que esta se encarga de recopilar la información de la autentifica
 estaba intentando ese comando y quise que se solucionara dandole permisos o ejecutandolo con sudo pero sigue marcando lo mismo
 
 nambre no pude hacer que funcionara bien el comando, ni Gemini pudo ayudarme que es lo que pasaba, todo el rato que estuve fue de investigacion con Gemini y aprueba y error de mi parte.
+
+31/07/2026
+
+Despues de un ratotote ya pude ver que problema habia del porque no jalaba el comando completo, pues el script de encryption tiene ya un estandar para cifrados modernos y la maquina virtual Windows Metasploitable3 es de hace ya una decada y usa un cifrado viejo y el script no esta preparado para esos cifrados y pues lo mandaba a la chingada por la version que tenia. Pero mira nada mas el problema es por tener versiones recientes de Nmap y KaliLinux que no podemos enumerar bien y rapidamente las versiones de la maquina objetivo, de que s epuede se puede pero con muchos cambios  tal vez bajando una version menos actualizada de Nmap porque la version del instructor del video su Nmap es la version 7.94 y la mia es 7.98SVN, lo que le salio al instructor seria algo asi:![[Pasted image 20260731175315.png]]
