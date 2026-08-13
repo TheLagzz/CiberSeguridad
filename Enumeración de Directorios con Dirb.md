@@ -27,3 +27,7 @@ dirb http://10.10.221.238/ /usr/share/wordlists/dirb/big.txt -t 11 -o we-dirb.tx
 3) Como tercer parámetro indicamos la ruta absoluta como relativa donde se encuentra la wordlist que vamos a usar, sino indicamos una dirb va a utilizar la predeterminada que es "common.txt"
 4) Como cuarto parámetro "-t" para indicar el número de hilos
 5) Como quinto parámetro "-o" para indicar como exportar el resultado de la enumeración a un fichero 
+**12/08/2026** -----------------------------------------------------------------------------------------------
+
+Existen herramientas distintas para el mismo objetivo, lo que las podría diferenciar es como interactúan estas herramientas con el objetivo, como en el caso anterior con una aplicación web ya que unas pueden ser mas o menos ruidosas o pueden añadir mas funcionalidades que otras, prácticamente la esencia de estas herramientas es hacer un tipo ataque de diccionario, se dice que es un como tipo de ataque de diccionario porque como tal no buscamos acceder a ningún lugar, simplemente descubrir recursos que están ocultos, Dirb y DirBuster no son las únicas herramientas, existen otras como Gobuster, WFUS, UFUS y muchos mas, solo que en el curso que estoy viendo menciona que como esas herramientas si las piden o podrían poner para resolver el examen de eJPT 
+
