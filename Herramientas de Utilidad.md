@@ -1,0 +1,3 @@
+Hay herramientas que aunque no están hechas directamente para el pentesting si pueden ser útiles para este. Ya sea que estemos en el trabajo, estudiando, resolviendo maquinas para practicar pentesting hay que hacer apuntes de todo.
+
+Hay herramientas como Obsidian, Notion, un archivo word o incluso en el bloc de notas, lo importante es tomar notas del paso a paso que estamos siguiendo para auditar un activo o para realizar una técnica en especifico. Como parte de tomar apuntes es tomar capturas de pantalla y existen herramientas para eso como Lightshot o Flameshot, ahora si que con todo anotado y llevando un control de la información que estamos auditando va a ser mas fácil consultarla.
